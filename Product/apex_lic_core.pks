@@ -1,21 +1,17 @@
 create or replace
-PACKAGE SV_LIC_CORE
+PACKAGE APEX_LIC_CORE
 AS
-  -----------------------------------------------------------------------
-  --
-  --               Copyright(C) 2009 SUMNEVA
-  --                         All Rights Reserved
-  --
+
   ---------------------------------------------------------------------
-  --  Application       : SUMNEVA Licensing App
+  --  Application       :  Licensing App
   --  Subsystem         : Client Side Licensing
-  --  Package Name      : SV_LIC_CORE
+  --  Package Name      : APEX_LIC_CORE
   --  Purpose           : License Key Enforcement
   --
   -----------------------------------------------------------------------
   --  Comments:
   --
-  --  SUMNEVA_SECURE is part of the SUMNEVA Licensing Module which provides
+  --  APEX_LIC_CORE is part of the  Licensing Module which provides
   --  license protection for PL/SQL and APEX based products.
   --
   -----------------------------------------------------------------------
@@ -63,7 +59,7 @@ FUNCTION IS_VALID_LICENSE
   ---------------------------------------------------------------------
   --  Purpose: Generate a system key specific to the system on which
   --           the software is installed. The key will be passed back
-  --           to SUMNEVA and will be used to generate a
+  --           to OWNER and will be used to generate a
   --           license key.
   --
   ---------------------------------------------------------------------
@@ -82,7 +78,7 @@ FUNCTION GEN_WORKSPACE_KEY(
   ---------------------------------------------------------------------
   --  Purpose: Generate a Application specific key
   --           The key will be passed back
-  --           to SUMNEVA and will be used to generate a
+  --           to OWNER and will be used to generate a
   --           license key.
   --
   ---------------------------------------------------------------------
@@ -137,4 +133,4 @@ FUNCTION DECRYPT_KEY(
     P_server_host   OUT VARCHAR2,
     P_Guid          OUT VARCHAR2,
     p_company_name  OUT VARCHAR2);
-END SV_lic_core;
+END APEX_LIC_CORE;

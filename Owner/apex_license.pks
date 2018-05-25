@@ -1,21 +1,17 @@
 create or replace
-PACKAGE SV_LICENSE
+PACKAGE APEX_LICENSE
 AS
+
   -----------------------------------------------------------------------
-  --
-  --               Copyright(C) 2009 SUMNEVA
-  --                  All Rights Reserved
-  --
-  -----------------------------------------------------------------------
-  --  Application       : SUMNEVA Licensing
+  --  Application       : APEX Licensing
   --  Subsystem         : Owner side Licensing
-  --  Package Name      : SUMNEVA_LICENSE
+  --  Package Name      : APEX_LICENSE	
   --  Purpose           : Provide the IP owner side of the licensing equation.
   --
   -----------------------------------------------------------------------
   --  Comments:
   --
-  --  SUMNEVA_LICENSE is part of the SUMNEVA Licensing Module which provides
+  --  APEX_LICENSE is part of the  Licensing Module which provides
   --  license protection for PL/SQL and APEX based products.
   --
   -----------------------------------------------------------------------
@@ -129,4 +125,4 @@ FUNCTION Generate_License(
 --
 -------------------------------------------------------------------
 PROCEDURE IS_VALID_KEY(P_KEY VARCHAR2);
-END SV_LICENSE;
+END APEX_LICENSE;

@@ -1,24 +1,21 @@
 create or replace
-PACKAGE BODY SV_LICENSE
+PACKAGE BODY APEX_LICENSE
 AS
-  ---------------------------------------------------------------------
-  --
-  --               Copyright(C) 2009 SUMNEVA
-  --                         All Rights Reserved
-  --
   -----------------------------------------------------------------------
   --
-  --  Application     : SUMNEVA Licensing
+  --  Application     : APEX Licensing
   --  Subsystem       : Owner side Licensing
-  --  Package Name    : SUMNEVA_LICENSE
+  --  Package Name    : APEX_LICENSE
   --  Purpose         : Provide the IP owner side of the licensing equation.
   --
   -----------------------------------------------------------------------
   ---------------------------------------------------------------------
   --< PRIVATE TYPES AND GLOBALS >--------------------------------------
   ---------------------------------------------------------------------
-  c_package VARCHAR2( 100 ) := 'SUMNEVA_LICENSE'; -- Used for debug
+  c_package VARCHAR2( 100 ) := 'APEX_LICENSE'; -- Used for debug
   c_salt Raw( 2048 )        := Utl_Raw.Cast_To_Raw( SUBSTR( TO_CHAR( Sqrt(( 1967 / 06 / 23 ) ) ), 3, 38 ) );
+  -- You'll want to change the salt calculation above to something specific to your project. 
+  -- This is just an example.
   ---------------------------------------------------------------------
   --< PRIVATE METHODS >------------------------------------------------
   ---------------------------------------------------------------------
@@ -332,4 +329,4 @@ IS
 BEGIN
   V_DECODED_KEY := DECRYPT_KEY(P_KEY);
 END IS_VALID_KEY;
-END SV_License;
+END APEX_LICENSE;

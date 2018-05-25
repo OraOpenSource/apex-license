@@ -1,15 +1,10 @@
 CREATE OR REPLACE
-PACKAGE BODY SV_LIC_CORE
+PACKAGE BODY APEX_LIC_CORE
 AS
   ---------------------------------------------------------------------
-  --
-  --               Copyright(C) 2009 SUMNEVA
-  --                         All Rights Reserved
-  --
-  ---------------------------------------------------------------------
-  --  Application       : SUMNEVA Licensing App
+  --  Application       : Licensing App
   --  Subsystem         : Client Side Licensing
-  --  Package Name      : SV_LIC_CORE
+  --  Package Name      : APEX_LIC_CORE
   --  Purpose           : License Key Enforcement
   --
   --
@@ -19,8 +14,10 @@ AS
   ---------------------------------------------------------------------
   --< PRIVATE TYPES AND GLOBALS >--------------------------------------
   ---------------------------------------------------------------------
-  c_package VARCHAR2( 100 ) := 'SUMNEVA_SECURE'; -- Used for debug
+  c_package VARCHAR2( 100 ) := 'APEX_LIC_CORE'; -- Used for debug
   c_salt RAW( 2048 )        := Utl_Raw.Cast_To_Raw( SUBSTR( TO_CHAR( Sqrt(( 1967/06/23 ) ) ), 3, 38 ) );
+  -- need to make sure this salt is the same as the owner Side
+  -- this is just an example.
   ---------------------------------------------------------------------
   --
   -------------------------------------------------------------------
@@ -290,7 +287,7 @@ END GEN_WORKSPACE_KEY;
 ---------------------------------------------------------------------
 --  Purpose: Generate a Application specific key
 --           The key will be passed back
---           to SUMNEVA and will be used to generate a
+--           to OWNER and will be used to generate a
 --           license key.
 --
 ---------------------------------------------------------------------
@@ -497,4 +494,4 @@ BEGIN
   --
 END decode_license;
 --
-END SV_LIC_CORE;
+END APEX_LIC_CORE;
